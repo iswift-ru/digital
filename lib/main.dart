@@ -2,13 +2,15 @@ import 'dart:async';
 
 import 'package:bloc_concurrency/bloc_concurrency.dart' as bloc_concurrency;
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/material.dart' hide Router;
+import 'package:flutter/material.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'config/bloc_observer/app_bloc_observer.dart';
-import 'config/routes/routes.gr.dart';
+
 import 'features/splash/application/main_bloc.dart';
 import 'features/splash/data/main_repository.dart';
+import 'features/splash/presentation/splash_screen_view.dart';
 import 'translations/codegen_loader.g.dart';
 
 void main() => runZonedGuarded<void>(
@@ -18,13 +20,13 @@ void main() => runZonedGuarded<void>(
         BlocOverrides.runZoned(
           () => runApp(
             EasyLocalization(
-              supportedLocales: const [Locale('ru', 'RU')],
+              supportedLocales: const [Locale('ru', 'RU'), Locale('en', 'US')],
               path: 'assets/translations',
-              fallbackLocale: const Locale('ru'),
+              fallbackLocale: const Locale('en', 'US'),
               useFallbackTranslations: true,
-              startLocale: const Locale('ru'),
+              startLocale: const Locale('en', 'US'),
               assetLoader: const CodegenLoader(),
-              child: AppWidget(),
+              child: const AppWidget(),
             ),
           ),
           blocObserver: AppBlocObserver.instance(),
@@ -35,9 +37,8 @@ void main() => runZonedGuarded<void>(
     );
 
 class AppWidget extends StatelessWidget {
-  AppWidget({Key? key}) : super(key: key);
+  const AppWidget({Key? key}) : super(key: key);
 
-  final _appRouter = Router();
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -53,13 +54,7 @@ class AppWidget extends StatelessWidget {
         //   )..add(const FilterPoints()),
         // )
       ],
-      child: MaterialApp.router(
-        routerDelegate: _appRouter.delegate(),
-        routeInformationParser: _appRouter.defaultRouteParser(),
-        localizationsDelegates: context.localizationDelegates,
-        supportedLocales: context.supportedLocales,
-        locale: context.locale,
-      ),
+      child: SplashScreenView(),
     );
   }
 }
