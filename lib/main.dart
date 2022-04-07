@@ -8,9 +8,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'config/bloc_observer/app_bloc_observer.dart';
 
-import 'features/splash/application/main_bloc.dart';
-import 'features/splash/data/main_repository.dart';
-import 'features/splash/presentation/splash_screen_view.dart';
+import 'features/push_list/data/repositories/main_repository.dart';
+import 'features/push_list/presentation/bloc/main_bloc.dart';
+import 'features/push_list/presentation/pages/push_list.dart';
 import 'translations/codegen_loader.g.dart';
 
 void main() => runZonedGuarded<void>(
@@ -20,7 +20,7 @@ void main() => runZonedGuarded<void>(
         BlocOverrides.runZoned(
           () => runApp(
             EasyLocalization(
-              supportedLocales: const [Locale('ru', 'RU'), Locale('en', 'US')],
+              supportedLocales: const [Locale('ru'), Locale('en')],
               path: 'assets/translations',
               fallbackLocale: const Locale('en', 'US'),
               useFallbackTranslations: true,
@@ -41,20 +41,18 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<MainBloc>(
-          create: (context) => MainBloc(mainRepository: MainRepository()),
-        ),
-
-        // BlocProvider<AtmradarBloc>(
-        //   create: (context) => AtmradarBloc(
-        //     atmRadarRepository: AtmRadarRepository(),
-        //     // animalRepository: AnimalServerRepository()),
-        //   )..add(const FilterPoints()),
-        // )
-      ],
-      child: SplashScreenView(),
+    return MaterialApp(
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
+      home: MultiBlocProvider(
+        providers: [
+          BlocProvider<MainBloc>(
+            create: (context) => MainBloc(mainRepository: MainRepository()),
+          ),
+        ],
+        child: const PushList(),
+      ),
     );
   }
 }

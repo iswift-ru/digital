@@ -2,8 +2,9 @@
 
 import 'package:bloc/bloc.dart';
 import 'package:l/l.dart';
-import 'package:longevity_app/config/error_util/error_util.dart';
 import 'package:meta/meta.dart';
+
+import '../error_util/error_util.dart';
 
 @sealed
 class AppBlocObserver extends BlocObserver {

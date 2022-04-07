@@ -1,3 +1,4 @@
-const String pathLogo = 'assets/images/logo.png';
-const String womanHand = 'assets/images/woman_hand.png';
-const String lineUnderText = 'assets/images/line.png';
+const String bell = 'assets/svg/bell.svg';
+const String geo = 'assets/svg/geo.svg';
+const String drawer = 'assets/svg/drawer.svg';
+const String heart = 'assets/svg/heart.svg';

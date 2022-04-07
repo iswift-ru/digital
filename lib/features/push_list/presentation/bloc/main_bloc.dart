@@ -3,7 +3,8 @@
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:longevity_app/features/splash/data/i_main_repository.dart';
+
+import '../../data/repositories/i_main_repository.dart';
 
 part 'main_bloc.freezed.dart';
 

@@ -1,7 +1,8 @@
 import 'package:auto_route/annotations.dart';
-import 'package:longevity_app/features/splash/presentation/get_started.dart';
+
+import '../../features/push_list/presentation/pages/push_list.dart';
 
 @MaterialAutoRouter(routes: <AutoRoute>[
-  MaterialRoute<dynamic>(page: GetStarted, initial: true),
+  MaterialRoute<dynamic>(page: PushList),
 ])
 class $Router {}

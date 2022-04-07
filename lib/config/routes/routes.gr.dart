@@ -13,7 +13,7 @@
 import 'package:auto_route/auto_route.dart' as _i2;
 import 'package:flutter/material.dart' as _i3;
 
-import '../../features/splash/presentation/get_started.dart' as _i1;
+import '../../features/splash/presentation/push_list.dart' as _i1;
 
 class Router extends _i2.RootStackRouter {
   Router([_i3.GlobalKey<_i3.NavigatorState>? navigatorKey])
@@ -21,21 +21,21 @@ class Router extends _i2.RootStackRouter {
 
   @override
   final Map<String, _i2.PageFactory> pagesMap = {
-    GetStartedRoute.name: (routeData) {
+    PushListRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i1.GetStarted());
+          routeData: routeData, child: const _i1.PushList());
     }
   };
 
   @override
   List<_i2.RouteConfig> get routes =>
-      [_i2.RouteConfig(GetStartedRoute.name, path: '/')];
+      [_i2.RouteConfig(PushListRoute.name, path: '/push-list')];
 }
 
 /// generated route for
-/// [_i1.GetStarted]
-class GetStartedRoute extends _i2.PageRouteInfo<void> {
-  const GetStartedRoute() : super(GetStartedRoute.name, path: '/');
+/// [_i1.PushList]
+class PushListRoute extends _i2.PageRouteInfo<void> {
+  const PushListRoute() : super(PushListRoute.name, path: '/push-list');
 
-  static const String name = 'GetStartedRoute';
+  static const String name = 'PushListRoute';
 }

@@ -15,16 +15,24 @@ class CodegenLoader extends AssetLoader{
   }
 
   static const Map<String,dynamic> ru_RU = {
-  "BMIDiseaseTracker": "BMI Disease Tracker",
-  "WelcomeToTheOnly": "Welcome To The Only\nOne Of it’s Kind",
-  "AIHealthAssistance": "AI Health Assistance",
-  "LetsGetStarted": "Let’s Get Started"
+  "search": "Поиск по номеру заказа",
+  "favorite": "У вашего избранного места появилась новая категория блюд",
+  "macdonalds": "Макдоналдс",
+  "gotocard": "Перейти в карточку места",
+  "status": "Изменился статус заказа №13124",
+  "injob": "В работе → Доставлен",
+  "gotoorder": "Перейти в заказ",
+  "viewEarly": "Показать более ранние"
 };
 static const Map<String,dynamic> en_US = {
-  "BMIDiseaseTracker": "BMI Disease Tracker",
-  "WelcomeToTheOnly": "Welcome To The Only\nOne Of it’s Kind",
-  "AIHealthAssistance": "AI Health Assistance",
-  "LetsGetStarted": "Let’s Get Started"
+  "search": "Поиск по номеру заказа",
+  "favorite": "У вашего избранного места появилась новая категория блюд",
+  "macdonalds": "Макдоналдс",
+  "gotocard": "Перейти в карточку места",
+  "status": "Изменился статус заказа №13124",
+  "injob": "В работе → Доставлен",
+  "gotoorder": "Перейти в заказ",
+  "viewEarly": "Показать более ранние"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru_RU": ru_RU, "en_US": en_US};
 }
